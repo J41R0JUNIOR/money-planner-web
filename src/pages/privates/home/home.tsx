@@ -12,9 +12,7 @@ export default function Home() {
 
       <section style={styles.cards}>
         <SummaryCard title="Saldo atual" value="R$ 5.000,00" />
-
         <SummaryCard title="Receitas" value="R$ 7.500,00" />
-
         <SummaryCard title="Despesas" value="R$ 2.500,00" />
       </section>
 
