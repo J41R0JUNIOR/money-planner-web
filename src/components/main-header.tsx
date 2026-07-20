@@ -1,11 +1,3 @@
-import {
-  FaBookMedical,
-  FaMapMarkedAlt,
-  FaPills,
-  FaHome,
-  FaClipboardList,
-} from "react-icons/fa";
-import { IconButton } from "@/components/icon-button";
 import { colors } from "@/styles/colors";
 import type { CSSProperties } from "react";
 import { router } from "@/router";
