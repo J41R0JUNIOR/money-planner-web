@@ -14,7 +14,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    environment: ${{ github.ref_name }}
+
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -32,13 +35,16 @@ jobs:
 
       - name: Build React
         run: npm run build
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_COGNITO_USER_POOL_ID: ${{ vars.VITE_COGNITO_USER_POOL_ID }}
+          VITE_COGNITO_CLIENT_ID: ${{ vars.VITE_COGNITO_CLIENT_ID }}
 
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: us-east-1
 
 
@@ -51,19 +57,25 @@ jobs:
         run: terraform init
 
 
+      - name: Terraform Validate
+        working-directory: infra
+        run: terraform validate
+
+
       - name: Terraform Apply
         working-directory: infra
         run: terraform apply -auto-approve
 
 
-      - name: Deploy Frontend
+      - name: Deploy Frontend to S3
         run: |
           aws s3 sync dist/ \
           s3://$(terraform -chdir=infra output -raw bucket_name) \
-          --delete
+          --delete \
+          --region us-east-1
 
 
-      - name: CloudFront Invalidation
+      - name: CloudFront Cache Invalidation
         run: |
           aws cloudfront create-invalidation \
           --distribution-id $(terraform -chdir=infra output -raw cloudfront_distribution_id) \
