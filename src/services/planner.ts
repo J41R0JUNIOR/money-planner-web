@@ -1,6 +1,6 @@
+import type { CreateEventRequest } from "@/types/planner";
 import { auth } from "./auth";
 import { baseURL } from "@/types/baseURL";
-import type { CreateEventRequest } from "@/types/money";
 
 async function createEvent(request: CreateEventRequest) {
   const token = auth.getToken();
