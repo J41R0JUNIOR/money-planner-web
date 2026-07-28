@@ -10,6 +10,7 @@ import HomePage from "./pages/privates/home/home";
 import NotFoundPage from "./pages/publics/notFound/notFound";
 import SignUpPage from "./pages/publics/signUp/signup";
 import ConfirmCodePage from "./pages/publics/confirmCode/confirm-code";
+import { EventPage } from "./pages/privates/entries/event.tsx";
 
 async function privateLoader() {
   const isLogged = await auth.isAuthenticated();
@@ -39,6 +40,7 @@ export const router = createBrowserRouter([
     loader: privateLoader,
     children: [
       { path: "home", element: <HomePage /> },
+      { path: "event", element: <EventPage /> },
     ],
   },
 

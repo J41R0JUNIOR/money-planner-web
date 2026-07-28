@@ -1,28 +1,17 @@
 import { colors } from "@/styles/colors";
 
 type ModalProps = {
-  isOpen: boolean;
+  open: boolean;
+  onClose: () => void;
   children: React.ReactNode;
-  onRequestClose: () => void;
-  style?: {
-    height?: string;
-    width?: string;
-  };
 };
 
-export default function Modal({ isOpen, children, onRequestClose, style }: ModalProps) {
-  if (!isOpen) return null;
+export function Modal({ open, onClose, children }: ModalProps) {
+  if (!open) return null;
 
   return (
-    <div style={styles.overlay} onClick={onRequestClose}>
-      <div
-        style={{
-          ...styles.content,
-          width: style?.width ?? "80vw",
-          height: style?.height ?? "auto",
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="overlay" onClick={onClose}>
+      <div className="content" onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>

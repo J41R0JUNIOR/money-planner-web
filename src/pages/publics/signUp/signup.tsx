@@ -4,6 +4,7 @@ import { signUpAction } from "./signup.action";
 import { customStyle } from "@/styles/custom-style";
 import Logo from "@/assets/logo.svg?react";
 import { handleLoading } from "@/util/handleLoading";
+import { Card } from "@/components/card";
 
 export default function SignUpPage() {
   const [email, setEmail] = React.useState("");
@@ -22,7 +23,7 @@ export default function SignUpPage() {
   }
 
   return (
-    <div style={customStyle.containerCenter}>
+    <Card style={customStyle.authContainer}>
       <form
         style={customStyle.form}
         onSubmit={(e) => e.preventDefault()}
@@ -104,6 +105,6 @@ export default function SignUpPage() {
           </button>
         </div>
       </form>
-    </div>
+    </Card>
   );
 }

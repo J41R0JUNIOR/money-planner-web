@@ -27,7 +27,7 @@ const styles: Record<string, React.CSSProperties> = {
         display: "flex",
         alignItems: "center",
         gap: 10,
-        color: colors.primaryDark,
+        color: colors.text,
         fontWeight: 700,
     },
 }

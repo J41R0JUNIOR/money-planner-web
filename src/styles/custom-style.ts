@@ -2,20 +2,16 @@ import type { CSSProperties } from "react";
 import { colors } from "./colors";
 
 export const customStyle: Record<string, CSSProperties> = {
-  containerCenter: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    boxShadow: "0 0 20px rgba(0,0,0,0.08)",
-    background: colors.cardBG,
+  authContainer: {
     padding: "5%",
-    borderRadius: "12px",
-    maxWidth: 420,
-    textAlign: "center",
+    minWidth: "300px",
+    border: `1px solid ${colors.border}`,
+    borderRadius: 16,
+
   },
   page: {
     width: "100%",
+    height: "100%",
     padding: 20,
     boxSizing: "border-box",
     background: colors.background,
@@ -29,9 +25,7 @@ export const customStyle: Record<string, CSSProperties> = {
     width: "100%",
   },
   logo: {
-    // marginBottom: "16px",
- 
-    color: colors.primary,
+    color: colors.mainLight,
   },
   title: {
     fontSize: "22px",

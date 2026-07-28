@@ -4,6 +4,7 @@ import { customStyle } from "@/styles/custom-style";
 import { useLocation } from "react-router-dom";
 import Logo from "@/assets/logo.svg?react";
 import { handleLoading } from "@/util/handleLoading";
+import { Card } from "@/components/card";
 
 
 export default function ConfirmCodePage() {
@@ -21,7 +22,7 @@ export default function ConfirmCodePage() {
   }
 
   return (
-    <div style={customStyle.containerCenter}>
+    <Card style={customStyle.authContainer}>
       <form
         style={customStyle.form}
         onSubmit={(e) => e.preventDefault()}
@@ -69,6 +70,6 @@ export default function ConfirmCodePage() {
           {loading ? "Confirmando..." : "Confirmar"}
         </button>
       </form>
-    </div>
+    </Card>
   );
 }

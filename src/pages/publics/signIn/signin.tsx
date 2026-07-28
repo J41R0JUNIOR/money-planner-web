@@ -5,6 +5,7 @@ import { customStyle } from "@/styles/custom-style";
 import { colors } from "@/styles/colors";
 import Logo from "@/assets/logo.svg?react";
 import { handleLoading } from "@/util/handleLoading";
+import { Card } from "@/components/card";
 
 export default function SignInPage() {
   const [email, setEmail] = React.useState("");
@@ -21,8 +22,8 @@ export default function SignInPage() {
   }
 
   return (
-    <div style={customStyle.containerCenter}>
-      <form
+    <Card style={customStyle.authContainer}>
+    <form
         style={customStyle.form}
         onSubmit={(e) => e.preventDefault()}
         autoComplete="on"
@@ -79,7 +80,9 @@ export default function SignInPage() {
           </button>
         </div>
       </form>
-    </div>
+  
+    </Card>
+    
   );
 }
 

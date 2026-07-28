@@ -1,26 +1,33 @@
 export const colors = {
-  primary: "#4C1D95",
-  primaryDark: "#2E1065",
-  primaryLight: "#7C3AED",
+  // Primary
+  primary: "#7C3AED", // Violet 600
+  mainLight: "#F5F3FF",
 
-  text: "#111827",
-  textLight: "#6B7280",
+  // Text
+  text: "#F8FAFC",
+  textLight: "#94A3B8",
 
-  background: "#F8FAFC",
-  cardBG: "#FFFFFF",
+  // Backgrounds
+  background: "#0B0B0F",
+  cardBG: "#13131A",
 
-  border: "#E5E7EB",
+  // Borders
+  border: "#27272F",
 
-  inputBG: "#FFFFFF",
+  // Inputs
+  inputBG: "#1A1A22",
 
-  success: "#16A34A",
-  warning: "#D97706",
-  danger: "#DC2626",
+  // Status
+  success: "#22C55E",
+  warning: "#F59E0B",
+  danger: "#EF4444",
 
+  // Buttons
   textButton: "#FFFFFF",
 
-  scrollbarBG: "#E5E7EB",
+  // Others
+  scrollbarBG: "#2E2E36",
 
-  modalBBg: "rgba(15,23,42,.5)",
-  modalBG: "#FFFFFF",
+  modalBBg: "rgba(0,0,0,.65)",
+  modalBG: "#16161D",
 };

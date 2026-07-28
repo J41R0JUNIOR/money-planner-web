@@ -4,6 +4,10 @@ export const auth = {
     return !!token;
   },
 
+  getToken() {
+    return localStorage.getItem("AccessToken");
+  },
+
   signIn(token: string) {
     // AccessToken: auth.AccessToken,
 	// 	IdToken: auth.IdToken,

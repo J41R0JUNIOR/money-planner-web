@@ -1,4 +1,4 @@
-import { MainHeader } from "@/components/main-header";
+import { MainHeader } from "@/components/main-header/main-header";
 import { colors } from "@/styles/colors";
 import type { CSSProperties } from "react";
 import { Outlet } from "react-router-dom";
@@ -22,11 +22,11 @@ const styles: Record<string, CSSProperties> = {
     flexDirection: "column",
     background: colors.background,
     overflow: "hidden",
-    scrollbarColor: `${colors.primaryDark} ${colors.scrollbarBG}`,
+    scrollbarColor: `${colors.cardBG} ${colors.scrollbarBG}`,
   },
-  content: {
+  content: {    
+    padding: 20,
     flex: 1,
-    width: "100%",
     overflowY: "auto",
   },
 };
